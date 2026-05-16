@@ -38,3 +38,46 @@ signinBtn.addEventListener("click", function(){
     message.style.color = "green";
     message.innerHTML = "Sign In clicked! Backend coming Day 2";
 });
+// Sign Up 
+document.getElementById('signup-form')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
+  
+  const res = await fetch('/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  
+  const data = await res.json();
+  if (res.ok) {
+    alert('Account created! Please sign in.');
+    location.reload();
+  } else {
+    alert(data.error);
+  }
+});
+
+// Sign In
+document.getElementById('signin-form')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('signin-email').value;
+  const password = document.getElementById('signin-password').value;
+  
+  const res = await fetch('/signin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  
+  const data = await res.json();
+  if (res.ok) {
+    alert('Login successful!');
+    localStorage.setItem('userId', data.userId);
+    // redirect to your main app page
+    window.location.href = '/dashboard.html';
+  } else {
+    alert(data.error);
+  }
+});
