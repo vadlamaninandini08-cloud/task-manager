@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/signup", "destination": "/server.js" },
-    { "source": "/signin", "destination": "/server.js" }
+    { "source": "/signup", "destination": "/api/signup" },
+    { "source": "/signin", "destination": "/api/signin" }
   ]
 }
