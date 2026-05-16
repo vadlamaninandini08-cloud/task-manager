@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model('User', UserSchema);
 
 // SIGNUP ROUTE - Creates new user
-app.post('/api/signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
   try {
     const { email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -31,7 +31,7 @@ app.post('/api/signup', async (req, res) => {
 });
 
 // SIGNIN ROUTE - Checks login
-app.post('/api/signin', async (req, res) => {
+app.post('/signin', async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
