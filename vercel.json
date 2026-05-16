@@ -6,7 +6,7 @@
   "routes": [
     { "src": "/signup", "dest": "/server.js" },
     { "src": "/signin", "dest": "/server.js" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/", "dest": "/public/index.html" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
